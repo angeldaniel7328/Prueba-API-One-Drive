@@ -95,20 +95,7 @@ namespace Prueba_API_One_Drive
 
             // se crea el cliente graph con el proveedor de autentificacion
             GraphServiceClient graphClient = new GraphServiceClient(authProvider);
-
-            string folio = "001";
-            DateTime date = DateTime.Now;
-            string path = $"Bluespend/{date.Year}/{date.Month}/{date.Day}/{folio}/archivo.txt";
-
-            StringBuilder text = new StringBuilder();
-
-            using var stream = new MemoryStream(Encoding.UTF8.GetBytes(@"Hola mundo"));
-
-            await graphClient.Me.Drive.Root.ItemWithPath(path).Content
-                .Request()
-                .PutAsync<DriveItem>(stream);
-
-
+            
         }
     }
 }
